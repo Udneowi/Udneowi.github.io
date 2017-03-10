@@ -4,6 +4,12 @@
         <meta charset="utf-8">
         <title>D3 Page Template</title>
         <script type="text/javascript" src="../d3/d3.js"></script>
+        <style type= "text/css">
+          p {
+          font-size: 24px;
+          font-weight: bold;
+          font-style: sans-serif}
+        </style>
     </head>
     <body>
         <script type="text/javascript">
@@ -12,7 +18,7 @@
             .data(dataset)
             .enter()
             .append("p")
-            .text(function(d){return d;})
+            .text(function(d){return "I can count up to " + d;})
             .style("color",function(d){
               if (d>15){
                 return "red";
