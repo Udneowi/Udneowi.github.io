@@ -48,7 +48,8 @@
               .append("div")
               .attr("class","bar")
               .style("height",function(d){
-                return d+ "px";
+                var barheight = 5*d
+                return barheight + "px";
               });
         </script>
     </body>
