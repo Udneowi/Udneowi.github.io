@@ -34,5 +34,13 @@
           <rect x="150" y="90" width="80" height="80" fill="yellow" stroke="grey" stroke-width="2" opacity ="0.4"/>
           <rect x="200" y="80" width="80" height="80" fill="red" stroke="grey" stroke-width="2" opacity ="0.2"/>
         </svg>
+        <script type="text/javascript">
+          var dataset = [5,10,15,20,25];
+          d3.select("body").selectAll("div")
+              .data(dataset)
+              .enter()
+              .append("div")
+              .attr("class","bar");
+        </script>
     </body>
 </html>
