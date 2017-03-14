@@ -34,14 +34,18 @@
               }
             });
         </script>
-        <svg label= "my_fancy_bar" width="500" height="200">
+      <div id = "my_fancy_bar">
+        <svg width="500" height="200">
           <rect x="0" y="120" width="80" height="80" fill="purple" stroke="grey" stroke-width="2" opacity ="1"/>
           <rect x="50" y="110" width="80" height="80" fill="blue" stroke="grey" stroke-width="2" opacity ="0.8"/>
           <rect x="100" y="100" width="80" height="80" fill="green" stroke="grey" stroke-width="2" opacity ="0.6"/>
           <rect x="150" y="90" width="80" height="80" fill="yellow" stroke="grey" stroke-width="2" opacity ="0.4"/>
           <rect x="200" y="80" width="80" height="80" fill="red" stroke="grey" stroke-width="2" opacity ="0.2"/>
         </svg>
-        <svg label = "d3circles"></svg>
+      </div>
+      <div id = "d3cricles">
+        <svg></svg>
+      </div>
         <br></br>
         <script type="text/javascript">
           //var dataset = [ 25, 7, 5, 26, 11, 8, 25, 14, 23, 19,14, 11, 22, 29, 11, 13, 12, 17, 18, 10,24, 18, 25, 9, 3 ];
@@ -50,7 +54,7 @@
             var newNumber = Math.floor(Math.random())*30;
             dataset.push(newNumber);
           }
-          var svg1 = d3.select("my_fancy_bar").selectAll("div")
+          var svg1 = d3.select("my_fancy_bar")
               .data(dataset)
               .enter()
               .append("div")
