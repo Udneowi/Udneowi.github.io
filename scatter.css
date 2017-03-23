@@ -7,3 +7,6 @@
     font-family: sans-serif;
     font-size: 11px;
 }
+circle:hover{
+  fill: orange;
+}

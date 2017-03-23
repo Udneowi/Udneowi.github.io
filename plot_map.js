@@ -39,7 +39,14 @@ d3.json("sfpddistricts.geojson", function(json) {
     })
 })
 
-
+d3.select("#Raw")
+    .on("click", function(){
+      svg_map.selectAll(".centers").remove();
+      svg_map.selectAll("circle")
+          .attr({
+            fill: "black"
+          })
+    })
 
 d3.select("#K2")
     .on("click", function() {

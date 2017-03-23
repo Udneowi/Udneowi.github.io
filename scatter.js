@@ -30,7 +30,7 @@ d3.json("scatter2003.json", function(json2003) {
             .range([h - padding, padding])
         var rScale_scatter = d3.scale.linear()
             .domain([0, Rmax])
-            .range([2, 8]);
+            .range([1, 8]);
         var xAxis = d3.svg.axis()
             .scale(xScale_scatter)
             .orient("bottom")
@@ -61,7 +61,9 @@ d3.json("scatter2003.json", function(json2003) {
                 }
             })
             .append("title")
-            .text(function(d){return d[3];});
+            .text(function(d) {
+                return d[3];
+            });
         svg_scatter.selectAll("text")
             .data(data2003)
             .enter()
@@ -71,23 +73,24 @@ d3.json("scatter2003.json", function(json2003) {
             })
             .attr({
                 x: function(d) {
-                    return xScale_scatter(d[0])+rScale_scatter(d[2]);
+                    return xScale_scatter(d[0]) + rScale_scatter(d[2]);
                 },
                 y: function(d) {
                     return yScale_scatter(d[1]);
                 },
                 "font-family": "sans-serif",
-                "font-size": "12px"
+                "font-size": "12px",
+                class: "plot_labels"
             });
-        svg_scatter.append("text","svg:title")
+        svg_scatter.append("text")
             .attr({
-              x: w/2,
-              y: 20,
-              "font-family": "sans-serif",
-              "text-anchor": "middle",
-              "font-size": "18px",
-              "text-decoration": "underline",
-              class: "title"
+                x: w / 2,
+                y: 20,
+                "font-family": "sans-serif",
+                "text-anchor": "middle",
+                "font-size": "18px",
+                "text-decoration": "underline",
+                class: "title"
             })
             .text("Graph from 2003");
         svg_scatter.append("g")
@@ -100,16 +103,16 @@ d3.json("scatter2003.json", function(json2003) {
             .call(yAxis);
         //Label on xAxis
         svg_scatter.append("text")
-                .attr("text-anchor", "middle")  // this makes it easy to centre the text as the transform is applied to the anchor
-                .attr("transform", "translate("+ (padding/2-14) +","+(h/2)+")rotate(-90)")  // text is drawn off the screen top left, move down and out and rotate
-                .text("VEHICLE THEFT");
+            .attr("text-anchor", "middle") // this makes it easy to centre the text as the transform is applied to the anchor
+            .attr("transform", "translate(" + (padding / 2 - 14) + "," + (h / 2) + ")rotate(-90)") // text is drawn off the screen top left, move down and out and rotate
+            .text("VEHICLE THEFT");
         //Label on yAxis
         svg_scatter.append("text")
-            .attr("text-anchor", "middle")  // this makes it easy to centre the text as the transform is applied to the anchor
-            .attr("transform", "translate("+ (w/2) +","+(h-(padding/3))+")")  // centre below axis
+            .attr("text-anchor", "middle") // this makes it easy to centre the text as the transform is applied to the anchor
+            .attr("transform", "translate(" + (w / 2) + "," + (h - (padding / 3)) + ")") // centre below axis
             .text("PROSTITUTION");
 
-        d3.select("#scatter")
+        d3.select("#toggle_year")
             .on("click", function() {
                 if (year == "2003") {
                     dataset_scatter = data2015;
@@ -134,13 +137,13 @@ d3.json("scatter2003.json", function(json2003) {
                             return rScale_scatter(d[2]);
                         }
                     })
-                svg_scatter.selectAll("text")
+                svg_scatter.selectAll(".plot_labels")
                     .data(dataset_scatter)
                     .transition()
                     .duration(1000)
                     .attr({
                         x: function(d) {
-                            return xScale_scatter(d[0])+rScale_scatter(d[2]);
+                            return xScale_scatter(d[0]) + rScale_scatter(d[2]);
                         },
                         y: function(d) {
                             return yScale_scatter(d[1]);
@@ -148,6 +151,18 @@ d3.json("scatter2003.json", function(json2003) {
                     })
                 svg_scatter.select(".title")
                     .text("Graph from " + year)
+
             })
+        d3.select("#labels")
+            .on("click", function() {
+                var active = labels.active ? false : true,
+                    boo = active ? 0 : 1;
+                svg_scatter.selectAll(".plot_labels").attr({
+                    "font-size": 12 * boo + "px"
+                });
+
+                labels.active = active;
+            })
+
     })
 })
