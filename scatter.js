@@ -78,7 +78,18 @@ d3.json("scatter2003.json", function(json2003) {
                 },
                 "font-family": "sans-serif",
                 "font-size": "12px"
+            });
+        svg_scatter.append("text","svg:title")
+            .attr({
+              x: w/2,
+              y: 20,
+              "font-family": "sans-serif",
+              "text-anchor": "middle",
+              "font-size": "18px",
+              "text-decoration": "underline",
+              class: "title"
             })
+            .text("Graph from 2003");
         svg_scatter.append("g")
             .attr("class", "axis")
             .attr("transform", "translate(0," + (h - padding) + ")")
@@ -135,6 +146,8 @@ d3.json("scatter2003.json", function(json2003) {
                             return yScale_scatter(d[1]);
                         }
                     })
+                svg_scatter.select(".title")
+                    .text("Graph from " + year)
             })
     })
 })
