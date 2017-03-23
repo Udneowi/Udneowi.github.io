@@ -21,24 +21,25 @@ d3.json("sfpddistricts.geojson", function(json) {
         .append("path")
         .attr("d", path)
         .style("fill", "steelblue");
+    d3.json("coords.json", function(json) {
+        svg_map.selectAll("circle")
+            .data(json)
+            .enter()
+            .append("circle")
+            .attr({
+                cx: function(d) {
+                    return projection(d)[0];
+                },
+                cy: function(d) {
+                    return projection(d)[1];
+                },
+                r: 1,
+                fill: "black"
+            });
+    })
 })
 
-d3.json("coords.json", function(json) {
-    svg_map.selectAll("circle")
-        .data(json)
-        .enter()
-        .append("circle")
-        .attr({
-            cx: function(d) {
-                return projection(d)[0];
-            },
-            cy: function(d) {
-                return projection(d)[1];
-            },
-            r: 1,
-            fill: "black"
-        });
-})
+
 
 d3.select("#K2")
     .on("click", function() {
