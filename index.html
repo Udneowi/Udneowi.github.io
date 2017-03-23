@@ -1,45 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>D3 Page Template</title>
-        <script type="text/javascript" src="../d3/d3.js"></script>
-        <style type= "text/css">
-          p {
-          font-size: 24px;
-          font-weight: bold;
-          font-style: sans-serif}
-          div.bar {
-            display: inline-block;
-            width: 20px;
-            height: 75px;
-            background-color: teal;
-            margin-right: 2px;}
-        </style>
+<head>
+  <meta charset="utf-8">
+  <title>Assignment 2</title>
+  <script type="text/javascript" src="./d3.js"></script>
+  <style type= "text/css">
+  p {
+    font-size: 24px;
+    font-weight: bold;
+    font-style: sans-serif}
+    </style>
 
-    </head>
-    <body>
-      <center>
-        <p> Kæft jeg er vild </p>
-        <div id = "count"></div>
-        <div>
-          <svg width="500" height="200">
-            <rect x="0" y="120" width="80" height="80" fill="purple" stroke="grey" stroke-width="2" opacity ="1"/>
-            <rect x="50" y="110" width="80" height="80" fill="blue" stroke="grey" stroke-width="2" opacity ="0.8"/>
-            <rect x="100" y="100" width="80" height="80" fill="green" stroke="grey" stroke-width="2" opacity ="0.6"/>
-            <rect x="150" y="90" width="80" height="80" fill="yellow" stroke="grey" stroke-width="2" opacity ="0.4"/>
-            <rect x="200" y="80" width="80" height="80" fill="red" stroke="grey" stroke-width="2" opacity ="0.2"/>
-          </svg>
-        </div>
-        <div id = "my_fancy_bar"></div>
-        <div id = "d3circles"></div>
-        <div id = "d3scatter">
-          <link rel="stylesheet" type="text/css" href="d3scatterplot.css"></link>
-        </div>
-      </center>
-    </body>
-    <script src="/count.js" type="text/javascript"></script>
-    <script src="/my_fancy_bar.js" type="text/javascript"></script>
-    <script src="/d3circles.js" type="text/javascript"></script>
-    <script src="/d3scatterplot.js" type="text/javascript"></script>
-</html>
+  </head>
+  <body>
+    <center>
+      <h2> Assignment 2A: One scatter plot and two datasets </h2>
+      <div id = "scatter">
+        <link rel="stylesheet" type="text/css" href="scatter.css"></link>
+        <center>
+        </center>
+      </div>
+
+      <h2> Assignment 2B: Visualizing geodata </h2>
+      <div id = "plot_map" >
+        <center>
+          <button id= "K2"> KM 2 </button>
+          <button id= "K3"> KM 3 </button>
+          <button id= "K4"> KM 4 </button>
+          <button id= "K5"> KM 5 </button>
+          <button id= "K6"> KM 6 </button>
+        </center>
+      </div>
+    </center>
+  </body>
+  <script src = "/plot_map.js" type = "text/javascript" ></script>
+  <script src = "/scatter.js" type = "text/javascript" ></script>
+  </html>
