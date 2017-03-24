@@ -62,7 +62,7 @@ d3.json("scatter2003.json", function(json2003) {
             })
             .append("title")
             .text(function(d) {
-                return d[3];
+                return "Total crimes from "+d[3]+" is "+d[2];
             });
         svg_scatter.selectAll("text")
             .data(data2003)
@@ -136,7 +136,11 @@ d3.json("scatter2003.json", function(json2003) {
                         r: function(d) {
                             return rScale_scatter(d[2]);
                         }
-                    })
+                    });
+                svg_scatter.selectAll("title").data(dataset_scatter)
+                    .text(function(d) {
+                        return "Total crimes from "+d[3]+" is "+d[2];
+                    });
                 svg_scatter.selectAll(".plot_labels")
                     .data(dataset_scatter)
                     .transition()

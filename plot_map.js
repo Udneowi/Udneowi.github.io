@@ -73,9 +73,10 @@ d3.select("#K2")
                         },
                         r: 5,
                         opacity: 1,
-                        fill: "black",
+                        fill: "none",
                         class: "centers",
-                        stroke: "black"
+                        stroke: "black",
+                        "stroke-width": "2"
                     })
             })
         })
@@ -106,9 +107,10 @@ d3.select("#K3")
                         },
                         r: 5,
                         opacity: 1,
-                        fill: "black",
+                        fill: "none",
                         class: "centers",
-                        stroke: "black"
+                        stroke: "black",
+                        "stroke-width": "2"
                     })
             })
         })
@@ -138,9 +140,10 @@ d3.select("#K4")
                         },
                         r: 5,
                         opacity: 1,
-                        fill: "black",
+                        fill: "none",
                         class: "centers",
-                        stroke: "black"
+                        stroke: "black",
+                        "stroke-width": "2"
                     })
             })
         })
@@ -170,9 +173,10 @@ d3.select("#K5")
                         },
                         r: 5,
                         opacity: 1,
-                        fill: "black",
+                        fill: "none",
                         class: "centers",
-                        stroke: "black"
+                        stroke: "black",
+                        "stroke-width": "2"
                     })
             })
         })
@@ -202,9 +206,10 @@ d3.select("#K6")
                         },
                         r: 5,
                         opacity: 1,
-                        fill: "black",
+                        fill: "none",
                         class: "centers",
-                        stroke: "black"
+                        stroke: "black",
+                        "stroke-width": "2"
                     })
             })
         })
