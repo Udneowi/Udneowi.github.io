@@ -158,7 +158,8 @@ d3.json("scatter2003.json", function(json2003) {
                 var active = labels.active ? false : true,
                     boo = active ? 0 : 1;
                 svg_scatter.selectAll(".plot_labels").attr({
-                    "font-size": 12 * boo + "px"
+                    "font-size": 12 * boo +1  + "px",  //Set to 1 to avoid text getting stuck at the old location when applying again
+                    opacity    :  boo,
                 });
 
                 labels.active = active;
