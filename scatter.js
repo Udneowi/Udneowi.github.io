@@ -121,7 +121,7 @@ d3.json("scatter2003.json", function(json2003) {
                     dataset_scatter = data2003;
                     year = "2003"
                 }
-                //Update scircles
+                //Update circles
                 svg_scatter.selectAll("circle")
                     .data(dataset_scatter)
                     .transition()

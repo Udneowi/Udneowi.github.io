@@ -1,5 +1,5 @@
-var w_map = 960;
-var h_map = 500;
+var w_map = 650;
+var h_map = 350;
 var projection = d3.geo.mercator()
     .center([-122.433701, 37.767683])
     .translate([w_map / 2, h_map / 2])

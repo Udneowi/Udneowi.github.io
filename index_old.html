@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Assignment 2</title>
+    <script type="text/javascript" src="./d3.js"></script>
+    <style type="text/css">
+        p {
+            font-size: 16px;
+            font-style: sans-serif
+        }
+    </style>
+
+</head>
+
+<body>
+      <center>
+        <h2> Assignment 2A: One scatter plot and two datasets </h2>
+        <p style = "width: 600px;"> You can hover over the dots to see the district and the total amount of crime.</p>
+        <div id="scatter">
+            <link rel="stylesheet" type="text/css" href="scatter.css"></link>
+        </div>
+
+        <div id="scatter_write">
+            <center>
+                <button id="labels"> Toggle point labels on/off </button>
+                <button id="toggle_year"> Switch between 2003 and 2015 </buttom>
+            </center>
+        </div>
+
+        <h2> Assignment 2B: Visualizing geodata </h2>
+        <div id="plot_map">
+            <center>
+                <button id="Raw"> Raw </button>
+                <button id="K2"> KM 2 </button>
+                <button id="K3"> KM 3 </button>
+                <button id="K4"> KM 4 </button>
+                <button id="K5"> KM 5 </button>
+                <button id="K6"> KM 6 </button>
+            </center>
+        </div>
+          </center>
+</body>
+<script src="/plot_map.js" type="text/javascript"></script>
+<script src="/scatter.js" type="text/javascript"></script>
+
+</html>
