@@ -1,0 +1,26 @@
+.zoom {
+  cursor: move;
+  fill: none;
+  pointer-events: all;
+}
+
+.message {
+  fill: #D64700;
+  fill-opacity: 1;
+}
+
+.messageContext {
+  fill: #C40000;
+  fill-opacity: 1;
+}
+
+
+.axis {
+  stroke-width: 0.5px;
+  stroke: #888;
+  font: 10px avenir next, sans-serif;
+}
+
+.axis > path {
+  stroke: #888;
+}

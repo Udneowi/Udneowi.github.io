@@ -1,0 +1,75 @@
+So, today we'll talk about the NYPD motor vehicle collisions dataset.
+
+The Agenda will be 
+	the data set
+	Some goals, what do we want to investigate
+	Which elements are needed and how we will implement it
+	And finally a bit about preliminara data analysis
+
+So the data set
+	It is motor vehicle collisions in New York Ciry
+	Why do we look at this? 
+		To see the development of collisions over the years
+		Hopefully find some interesting patterns
+To the right we see a beautifull heat map of the total incidents in New York city, where it is possible to spot the characteristic block structure 
+
+A quick walkthrough of the data
+	The data is freely avaliable
+	It is large, around 1 million rows and 29 columns where around eighthundred thousand includes geodata.
+	It is available in several formats
+	and the amount of columns gives a lot of prediction possibilities
+	It ranges from mid 2012 to whenever the dataset is downloaded, updated daily
+
+Here we have all the attributes, which includes
+	date
+	time
+	geo location
+	and very specific incident properties
+
+So what are our goals?
+	Does the time of day correlate with the amount of incidents?
+		What about injuries and kills?
+		What are the causes?
+	What is the development over the years? Has it increased or decreased? Has some increased while others decreased and so on.
+ 	
+To investigate this we will look at some distributions	
+	We see the total amount of incidents peaks around 8 in the morning and 4 in the evening during rush hour
+	The same happens for the amount of injuries, but interesting the amount of death does not follow the exact pattern.
+	Around 4 in the morning there is a big peak which could be interesting to look at.
+	Last we see the total amount of incidents for each year, where is should be noted that it only contains half of 2012 and one fourth of 2017.
+	Interestlingly it increases over the years.
+
+Other goals could be causes of traffic incident and is it dangerous to bike or walk in specific places
+
+These are all the causes, excluding unspecified, where we see the majority is Driver inattention/distraction. 
+	Maybe it changes for different discricts?
+
+So how will we achiev the goals?
+	We will use decision trees to classify vehicle types
+	We will use K-means to determine hotspots in traffic
+	And K nearest neighbors to detemine if some spots are more dangerous to bike in than walking and vice versa
+	And for the website we will use D3 to give grafic visulizations.
+
+For implementation we will mostly use premade libraries for python, e.i. 
+	SK-learn
+	Numpy
+	and Geoplotlib
+
+and as mentioned before also D3 and CSS to make interractive visulizations on a website.
+	
+
+
+
+
+
+
+	
+
+
+
+	
+
+
+
+
+
