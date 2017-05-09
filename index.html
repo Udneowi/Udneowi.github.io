@@ -28,21 +28,51 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 				This assignment is made by David Frich Hansen, s144242 and Peter Edsberg Møllgaard, s144284
 			</div>
 		</section>
+		<section id="one" class="main style1">
+			<div class="container">
+				<div class="row 150%">
+					<div class="6u 12u$(medium)">
+						<header class="major">
+							<h2>Welcome</h2>
+						</header>
+						<p>This website will try its best to introduce the reader to the NYPD Motor Collision Dataset. To the interested an iPython Notebook can be found <a href="http://nbviewer.jupyter.org/github/davidfrichhansen/socialdataexam2017/blob/master/explanatoryNotebookFinalProject.ipynb">here</a>.
+							The purpose of this site is to give you an intuition regarding the motor vehicle incidents in the Big Apple, New York City.<br>
+If you take a look to your right you can find the data to download and fiddle around with, and below you can see some results of analysis of said dataset, along with data of the weather in NYC and population densities in NYC. <br>
+The iPython Notebook linked above holds information on the data analysis as well as code to replicate it. We hope you enjoy. <br>
 
+<a href="https://github.com/Udneowi/Udneowi.github.io"> Link to repository containing files for website. </a>
+						 				</p>
+					</div>
+					<div class="6u$ 12u$(medium) important(medium)">
+					<header>
+						<h2>The Data</h2>
+					</header>
+						<div  >
+							The NYPD Motor Collision Dataset is an open data set about collisions in NYC from the 1st of July 2012 until the 31st March of 2017, avaliable <a href="https://data.cityofnewyork.us/Public-Safety/NYPD-Motor-Vehicle-Collisions/h9gi-nx95">here</a>.
+							The data is continously updated, but for this web page only the given interval is included.	<br>
+							A long with this, weather data from National Centers of Enviromental Information under NOAA, the National Oceanic and Atmospheric Administration, will also be presented, avaliable <a href="https://www.ncdc.noaa.gov/cdo-web/datasets">here</a>.
+						  We have included the same period for the weather data as the collision data.<br>
+							Finally also a data set over population densities is used, avaliable <a href="https://data.cityofnewyork.us/City-Government/New-York-City-Population-By-Neighborhood-Tabulatio/swpk-hqdp">here</a>.
+							Similarly shape files of the NTAs in NYC can be found <a href="https://www1.nyc.gov/site/planning/data-maps/open-data/dwn-nynta.page">here</a>. <a href="http://mapshaper.org">Mapshaper.org</a> has been used to convert these shape files into TopoJson files.
+
+						</div>
+						</div>
+					</div>
+				</div>
+			</section>
 		<!-- One -->
 		<section id="one" class="main style1">
 			<div class="container">
 				<div class="row 150%">
 					<div class="6u 12u$(medium)">
 						<header class="major">
-							<h2>Assignment 2A: One scatter plot and two datasets</h2>
+							<h2>Overview</h2>
 						</header>
-						<p>The following is a scatter plot of the amount of prostitution crimes related to the amount of vehicle theft crimes in the different police districts in San Fransisco. <br/>
-							The scatter plot is available in two versions - one from 2003 and one from 2015. You can switch between the two by clicking the button below the plot as well as toggle labels for each individual point. <br/>
-							The size of the points in the scatter plot is determined by the total amount of crime (ie. including all other categories) in the given district. <br/>
-							This can be seen by hovering the mouse over the data points, where the total amount of crimes pop up. <br/>
-							The axes have not been scaled on purpose. This ensures that the two years are directly comparable in terms of the difference. Thus it's very easy to see that eg. the amount of prostitution crimes has dropped quite a bit in the span of the years.
-						</p>
+						<p> First we would like to give an idea about the NYC Collision data set. To the right an interactive graph is shown, and feel free to scroll through the set. This graph shows the daily amount of incidents all over NYC in the period from 1st of July 2012 to the 31th of March 2017.
+							Zooming in on big holidays like New Year or Christmas, then contrary to our initial assumptions, these days was actually quite normal if not lower than the mean. Going to the 21th of January 2014 we see a HUGE spike. A quick google can then reveal a snow storm unveiling around
+							in NYC. Here an idea can be made about how the weather can inflict the amount of collisions which we will return to later.<br>
+							To get the bigger picture we will have to look distribution, but for now just enjoy a beautiful graphical illustration.
+												</p>
 					</div>
 					<div class="6u$ 12u$(medium) important(medium)">
 						<div id="collisions_bar_zoom"  >
@@ -58,31 +88,48 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 					<div class="row 150%">
 						<div class="6u 12u$(medium)">
 							<header class="major">
-								<h2>Assignment 2B: Visualizing geodata</h2>
+								<h2>Data distributions </h2>
 								</header>
-									<p> To the left one can see the result of training a <i>K-means</i> clustering algorithm on the prostitution geodata in San Fransisco. <br />
-											The number of neighbors are toggled by the buttons above the plot. The cluster centroids are shown as well. An iPython Notebook can be found in the repository with Python code for training of the algorithms.</p>
+									<p>Since plotting all the dates was quite incomprehensible, we have instead plotted five different distributions below (Use buttons to switch between them). <br>
+										First we see the yearly development of incidents, where ones first thought would be, "Why are 2012 and 2017 so low?", but this is due to the fact that their data are not complete. Nevertheless we can see that the tendenses in collisions are growing slightly year after year,
+										but with only 4 years avaliable, and such small shifts it is hard to conclude anything.<br>
+										Next up we have incidents per hour. This distribution shows the incidents for each hour over all the years, which shouldn't be too surprising. We see the peaks accurs during rush hours in the morning, around 8am, and the afternoon, around 4pm.
+										But next up we want to split this up in how many incidents have people been injured and have died.
+
+									</p>
 
 					</div>
 					<div class="6u$ 12u$(medium)">
-						<header class="major">
-							<div>
-								<center>
-								<button id = "bar_plot_button" value = "Deaths per hour" value2 = "deaths_per_hour.json">   Deaths per hour </button>
-								<button id = "bar_plot_button" value = "Injuries per hour" value2 = "injuries_per_hour.json">    Injuries per hour </button>
-								<button id = "bar_plot_button" value = "Incidents per hour" value2 = "incidents_per_hour.json">   Incidents per hour </button>
-								<button id = "bar_plot_button" value = "Yearly development" value2 = "incidents_per_year.json">   Yearly development </button>
-								<button id = "bar_plot_button" value = "Causes" value2 = "incidents_causes.json">   Most frequent causes </button>
-							</center>
+							<div style="margin-top:3.2cm">
+								<p> Not too surprising the amount of injured follows the amound of incidents quite well. To get a feel of this click on the the buttons right after eachother and watch the smooth and delicous transformation in the graph. <br>
+									Interestingly this isn't the case for incidents where deaths are included. Here we see that during midday, 7am - 5pm, the amount drops a lot relatively to the rest of the day. Especially early morning has a big rise where 4am tops the deal.<br>
+									The last distribution covers the indident causes. It should be noted that "unspecified" causes has been removed from the data set, which was over a million incidents. But given the large amount of data, the plot should give a good idea of the cause distribution either way.
+									We see that "Driver inattention/distraction" takes a clear number one, which is not too surprising since it's a broad definition. <br>
+									Now we have build a bit of understanding of the data set over time, and will now move on to the spatial domain.
+
+
+
+								 </p>
 							</div>
 					</div>
-						<div class="12u 12u$(medium)">
+						<div class="9u 12u$(medium)">
 							<center>
 							<div id="bar_plot_div">
 
 							</div>
 						</center>
 
+					</div>
+					<div class="3u$ 12u$(medium)">
+							<div>
+								<center>
+								<button id = "bar_plot_button" value = "Yearly development" value2 = "incidents_per_year.json", style="margin-top: 1.3cm;  width:10cm;">   Yearly development </button>
+								<button id = "bar_plot_button" value = "Incidents per hour" value2 = "incidents_per_hour.json", style=" width:10cm;">   Incidents per hour </button>
+								<button id = "bar_plot_button" value = "Injuries per hour" value2 = "injuries_per_hour.json", style=" width:10cm;">    Injuries per hour </button>
+								<button id = "bar_plot_button" value = "Deaths per hour" value2 = "deaths_per_hour.json", style="width:10cm">   Deaths per hour </button>
+								<button id = "bar_plot_button" value = "Causes" value2 = "incidents_causes.json",  style=" width:10cm">   Most frequent causes </button>
+							</center>
+							</div>
 					</div>
 					</div>
 				</div>
@@ -93,14 +140,14 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 					<div class="row 150%">
 						<div class="6u 12u$(medium)">
 							<header class="major">
-								<h2>Assignment 2A: One scatter plot and two datasets</h2>
+								<h2>Spatial understanding</h2>
 							</header>
-							<p>The following is a scatter plot of the amount of prostitution crimes related to the amount of vehicle theft crimes in the different police districts in San Fransisco. <br/>
-								The scatter plot is available in two versions - one from 2003 and one from 2015. You can switch between the two by clicking the button below the plot as well as toggle labels for each individual point. <br/>
-								The size of the points in the scatter plot is determined by the total amount of crime (ie. including all other categories) in the given district. <br/>
-								This can be seen by hovering the mouse over the data points, where the total amount of crimes pop up. <br/>
-								The axes have not been scaled on purpose. This ensures that the two years are directly comparable in terms of the difference. Thus it's very easy to see that eg. the amount of prostitution crimes has dropped quite a bit in the span of the years.
-							</p>
+							<p>
+								So does the location have any effect on the amount of incidents? To the right another interactive plot has been made over NYC, where zooming, panning, and pointing for information is possible. <br>
+								Initially we see a plot over the population per square kilimeter in NYC, where the darker the color the bigger the density. Not surprising, Manhattan has the biggest density of population where Yorkvile wins first prize.
+								By clicking the button below the graph, it should change to the amount of incidents per square kilometer. Here it should be noted the amount are over the full period, which can be read in the graph title. <br>
+								It's interesting to see how the density of incidents changes from middle/northern Manhattan to southern Manhattan, which is most probably due to the fact that southern Manhattan is the hot spot regarding workarea and seightseing.
+														</p>
 						</div>
 						<div class="6u$ 12u$(medium) important(medium)">
 							<div id = "chart-container-title">
@@ -124,16 +171,23 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 						<div class="row 150%">
 							<div class="6u 12u$(medium)">
 								<center>
+								<div style="margin-top:4cm"></div>
 								<div id="chart-container2">
 								</div>
 							</center>
 						</div>
 						<div class="6u$ 12u$(medium)">
 							<header class="major">
-								<h2>Assignment 2B: Visualizing geodata</h2>
+								<h2>Bike or walk?</h2>
 								</header>
-									<p> To the left one can see the result of training a <i>K-means</i> clustering algorithm on the prostitution geodata in San Fransisco. <br />
-											The number of neighbors are toggled by the buttons above the plot. The cluster centroids are shown as well. An iPython Notebook can be found in the repository with Python code for training of the algorithms.</p>
+									<p> Have you ever wondered - should I take my bike to work or should I walk? <br>
+You might've thought that you should consider things like the weather, travel times etc., but what about the statistics? <br>
+Here you see a map which holds the statistical evidence on whether you should walk or bike depending on where you are. <br>
+The map is based on history and on how many accidents have happened before. The idea is that you should look at where you are on the map, and if you're in a 'green zone' then the data shows that most of the accidents around you - the 36 nearest observed to be precise - in which a person has been injured or killed in a car accident has been a pedestrian <bt>
+On the other hand - if you're in a 'red zone' then most of the accidents around you (still 36, to be precise) in which a person has been injured or killed has been a cyclist. <br>
+Thus if you're in a red zone you're better off by foot, whereas if you're in a green zone you're better off on bike. <br>
+The method used here is a classic in Machine Learning - <i> K-nearest-neighbor classification </i> in which the algorithm predicts a certain class based on similar objects. Here we simply use location to train the algorithm and predict a grid over New York City. <br>
+Overall, the data predicts that you're safer by bike on Manhattan and safer on foot in Brooklyn.<br></p>
 							</div>
 						</div>
 					</div>
@@ -144,17 +198,17 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 						<div class="row 150%">
 							<div class="6u 12u$(medium)">
 								<header class="major">
-									<h2>Assignment 2A: One scatter plot and two datasets</h2>
+									<h2>Using decision trees</h2>
 								</header>
-								<p>The following is a scatter plot of the amount of prostitution crimes related to the amount of vehicle theft crimes in the different police districts in San Fransisco. <br/>
-									The scatter plot is available in two versions - one from 2003 and one from 2015. You can switch between the two by clicking the button below the plot as well as toggle labels for each individual point. <br/>
-									The size of the points in the scatter plot is determined by the total amount of crime (ie. including all other categories) in the given district. <br/>
-									This can be seen by hovering the mouse over the data points, where the total amount of crimes pop up. <br/>
-									The axes have not been scaled on purpose. This ensures that the two years are directly comparable in terms of the difference. Thus it's very easy to see that eg. the amount of prostitution crimes has dropped quite a bit in the span of the years.
-								</p>
+								<p>To look at some unusual statistics we have decided to train an alternative prediction model. We have used a decision tree, which we will illustrate below, to predict the following.<br>
+								Given that you are in an accident, how does the weather and time of day affect the outcome of your involvement. Will you come out safe, injured or dead? To be more frank we trained a random forest classifier, where a the graph to the right, indicates how well our prediction work.
+							  Leaving out the juicy, but complex stuff, the graph to the right shows that with we can predict the outcome of your invovlement with a nearly 81 percent certainty. <br>
+							  A small but fun illustration of how decision trees works can be seen below. This is a VERY simplified version of ours, but gives an understanding. Each node in the graph indicates a yes or no decision. If true you move up, and false you move down. Each not gives a question which you have to answer,
+							 and when you have reached the end, the certainty for each outcome will be shown. Try opening the nodes by clicking on them to get the feel.  </p>
 							</div>
 							<div class="6u$ 12u$(medium) important(medium)">
-								<div>
+								<div style="margin-top:4cm">
+									<IMG SRC="OOB_error.png" ALT="some text" WIDTH=640 HEIGHT=500>
 								</div>
 							 </div>
 							<div class="12u$ 12u$(medium) important(medium)">
@@ -164,7 +218,20 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 							</div>
 						</div>
 					</section>
-
+					<!--six-->
+					<section id="six" class="main style2">
+						<div class="container">
+							<div class="row 150%">
+								<div class="6u 12u$(medium)">
+							</div>
+							<div class="6u$ 12u$(medium)">
+								<header class="major">
+									<h2>Thank you</h2>
+									</header>
+										<p> We hope our presentation and vizulation has improved your understanding of trafic collisions in NYC.							</div>
+							</div>
+						</div>
+					</section>
 
 <!-- Footer -->
 <section id="footer">

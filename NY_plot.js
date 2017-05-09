@@ -118,7 +118,7 @@ function ready(error, ny) {
           var xScale_map_max = pop_max_per_area/9456.49240963
           var xScale_map = d3.scaleLinear()
             .range([-legendWidth/2, legendWidth/2])
-            .domain([ 0, pop_max_per_area] );
+            .domain([ 0, xScale_map_max] );
 
           //Making the axis labels to the color map
           var xAxis_map = d3.axisBottom(xScale_map)

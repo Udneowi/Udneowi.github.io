@@ -2,11 +2,11 @@
 /* Adapted from: https://bl.ocks.org/misanuk/fc39ecc400eed9a3300d807783ef7607 */
 
 //Defining SVG size
-var margin = {top: 200, right: 20, bottom: 190, left: 50},
-    margin2 = {top: 530, right: 20, bottom: 30, left: 50},
+var margin = {top: 150, right: 20, bottom: 190, left: 50},
+    margin2 = {top: 480, right: 20, bottom: 30, left: 50},
     width = 700 - margin.left - margin.right,
-    height = 700 - margin.top - margin.bottom,
-    height2 = 600 - margin2.top - margin2.bottom;
+    height = 650 - margin.top - margin.bottom,
+    height2 = 550 - margin2.top - margin2.bottom;
 
 //Defining a variable to reformate data to timeParses
 var parseTime = d3.timeParse("%Y-%m-%d");
@@ -116,7 +116,7 @@ d3.json("Collisions_per_day.json", function(error, data) {
   svg_bar_zoom.append("text")
         .attr("transform",
               "translate(" + ((width + margin.right + margin.left)/2) + " ," +
-                             (height + margin.top*0.56 + margin.bottom) + ")")
+                             (height + margin.top*0.4 + margin.bottom) + ")")
         .style("text-anchor", "middle")
         .text("Date");
 
