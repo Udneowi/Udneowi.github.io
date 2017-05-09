@@ -1,0 +1,68 @@
+.bar {
+  display: inline-block;
+  width: 20px;
+  height: 75px;
+  background-color: teal;
+  margin-right: 2px;}
+.ny-neighborhoods {
+  stroke: #000;
+  stroke-width: 0.5px;
+  fill: none;
+}
+.ny-neighborhoods2 {
+  stroke: #000;
+  stroke-width: 0.5px;
+  fill: none;
+}
+.overlay {
+  fill: none;
+  pointer-events: all;
+}
+
+.state {
+  fill: #aaa;
+}
+
+.county-border,
+.state-border {
+  fill: none;
+  stroke: #fff;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+.axis_map path,
+.axis_map tick,
+.axis_map line {
+  fill: none;
+  stroke: none;
+}
+.bar_y_axis line,
+.bar_y_axis path,
+.bar_y_axis text{
+  stroke: white;
+}
+
+.bar_x_axis line,
+.bar_x_axis path,
+.bar_x_axis text{
+  stroke: white;
+}
+.node {
+  cursor: pointer;
+}
+
+.node circle {
+  fill: #fff;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+
+.node text {
+  font: 10px sans-serif;
+}
+
+.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 1.5px;
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>D3 Page Template</title>
+        <!--<script type="text/javascript" src="/d3.js"></script>-->
+				<script src="https://d3js.org/d3.v4.min.js"></script>
+        <style type= "text/css">
+          p {
+          font-size: 24px;
+          font-weight: bold;
+          font-style: sans-serif}
+          .bar {
+            display: inline-block;
+            width: 20px;
+            height: 75px;
+            background-color: teal;
+            margin-right: 2px;}
+					.ny-neighborhoods {
+    				stroke: #000;
+    				stroke-width: 0.5px;
+    				fill: none;
+  				}
+          .ny-neighborhoods2 {
+    				stroke: #000;
+    				stroke-width: 0.5px;
+    				fill: none;
+  				}
+					.overlay {
+  					fill: none;
+  					pointer-events: all;
+					}
+
+					.state {
+  				  fill: #aaa;
+				  }
+
+					.county-border,
+					.state-border {
+  					fill: none;
+  					stroke: #fff;
+  					stroke-linejoin: round;
+  					stroke-linecap: round;
+					}
+          .axis_map path,
+          .axis_map tick,
+          .axis_map line {
+            fill: none;
+            stroke: none;
+          }
+        </style>
+
+    </head>
+    <body>
+      <center>
+				<div id = "collisions_bar_zoom" style="margin-bottom: 1cm;"><link rel="stylesheet" href="bar_zoom.css" /></div>
+
+				<div id = "bar_plot_div" style="margin-bottom: 2cm;" >
+				</div>
+
+				<div id = "bar_plot_div2" style="margin-bottom: 1cm;" >
+				</div>
+
+
+
+				<div style="margin-bottom: 1cm;">
+					<button id = "bar_plot_button" value = "Deaths per hour" value2 = "deaths_per_hour.json">   Deaths per hour </button>
+					<button id = "bar_plot_button" value = "Injuries per hour" value2 = "injuries_per_hour.json">    Injuries per hour </button>
+					<button id = "bar_plot_button" value = "Incidents per hour" value2 = "incidents_per_hour.json">   Incidents per hour </button>
+					<button id = "bar_plot_button" value = "Yearly development" value2 = "incidents_per_year.json">   Yearly development </button>
+				</div>
+
+				<div id = "chart-container" >
+				</div>
+        <div id = "chart-container_color_bar" >
+				</div>
+        <div>
+          <button id = "map_button">   Change to incident density </button>
+        </div>
+
+        <div id = "chart-container2" style="margin-bottom: 1cm,height: 500px;width:900px;">
+        </div>
+
+      </center>
+		<script src="/collisions_bar_zoom.js" type="text/javascript"></script>
+	  <script src="/bar_plot_function.js" type="text/javascript"></script>
+		<script src="https://d3js.org/topojson.v1.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/queue-async/1.0.7/queue.min.js"></script>
+		<script src="/NY_plot.js"></script>
+    <script src="/NY_plot2.js"></script>
+    </body>
+</html>

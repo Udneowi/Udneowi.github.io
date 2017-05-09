@@ -1,37 +1,45 @@
 
 /* Adapted from: https://bl.ocks.org/misanuk/fc39ecc400eed9a3300d807783ef7607 */
 
-var margin = {top: 20, right: 20, bottom: 90, left: 50},
-    margin2 = {top: 230, right: 20, bottom: 30, left: 50},
-    width = 960 - margin.left - margin.right,
-    height = 300 - margin.top - margin.bottom,
-    height2 = 300 - margin2.top - margin2.bottom;
+//Defining SVG size
+var margin = {top: 200, right: 20, bottom: 190, left: 50},
+    margin2 = {top: 530, right: 20, bottom: 30, left: 50},
+    width = 700 - margin.left - margin.right,
+    height = 700 - margin.top - margin.bottom,
+    height2 = 600 - margin2.top - margin2.bottom;
 
+//Defining a variable to reformate data to timeParses
 var parseTime = d3.timeParse("%Y-%m-%d");
 
+//Defining all the scale variables
 var x = d3.scaleTime().range([0, width]),
     x2 = d3.scaleTime().range([0, width]),
     y = d3.scaleLinear().range([height, 0]),
     y2 = d3.scaleLinear().range([height2, 0]);
 
+//Defining the axises
 var xAxis = d3.axisBottom(x).tickSize(0),
     xAxis2 = d3.axisBottom(x2).tickSize(0),
     yAxis = d3.axisLeft(y).tickSize(0);
 
+//Defining the brush variable (drag variable)
 var brush = d3.brushX()
     .extent([[0, 0], [width, height2]])
     .on("brush", brushed);
 
+//Defining the zoom variable
 var zoom = d3.zoom()
     .scaleExtent([1, Infinity])
     .translateExtent([[0, 0], [width, height]])
     .extent([[0, 0], [width, height]])
     .on("zoom", zoomed);
 
+//Selecting the div and appending a SVG
 var svg_bar_zoom = d3.select("#collisions_bar_zoom").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom);
 
+//Assigning the svg an outer layer
 svg_bar_zoom.append("defs").append("clipPath")
     .attr("id", "clip")
   .append("rect")
@@ -39,37 +47,43 @@ svg_bar_zoom.append("defs").append("clipPath")
     .attr("width", width)
     .attr("height", height);
 
+//Appending a g element to cover the top graph
 var focus = svg_bar_zoom.append("g")
     .attr("class", "focus")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+//Appending a g element to cover the lower graph
 var context = svg_bar_zoom.append("g")
     .attr("class", "context")
     .attr("transform", "translate(" + margin2.left + "," + margin2.top + ")");
 
-// Data Load from CSV
+// Data Load from json
 d3.json("Collisions_per_day.json", function(error, data) {
   if(error) throw error;
 
+  //Convert the time
   data.forEach(function(d) {
     d.date = parseTime(d.date);
   });
 
+  //Define max and mins for the data
   var xMin = d3.min(data, function(d) { return d.date; });
   var xMax = d3.max(data, function(d) { return d.date; });
   var yMax = Math.max(20, d3.max(data, function(d) { return d.count; }));
 
+  //Define the domain for the scale variable
   x.domain([xMin, new Date()]);
   y.domain([0, yMax]);
   x2.domain(x.domain());
   y2.domain(y.domain());
 
+  //
   var num_messages = function(dataArray, domainRange) { return d3.sum(dataArray, function(d) {
     return d.date >= domainRange.domain()[0] && d.date <= domainRange.domain()[1];
     })
   }
 
-  // append scatter plot to main chart area
+  // append bar plot to main chart area
   var messages = focus.append("g");
     messages.attr("clip-path", "url(#clip)");
     messages.selectAll("message")
@@ -102,7 +116,7 @@ d3.json("Collisions_per_day.json", function(error, data) {
   svg_bar_zoom.append("text")
         .attr("transform",
               "translate(" + ((width + margin.right + margin.left)/2) + " ," +
-                             (height + margin.top + margin.bottom) + ")")
+                             (height + margin.top*0.56 + margin.bottom) + ")")
         .style("text-anchor", "middle")
         .text("Date");
 
@@ -113,7 +127,7 @@ d3.json("Collisions_per_day.json", function(error, data) {
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
     .call(zoom);
 
-  // append scatter plot to brush chart area
+  // append bar plot to brush chart area
    var messages = context.append("g");
        messages.attr("clip-path", "url(#clip)");
        messages.selectAll("message")
@@ -138,7 +152,7 @@ d3.json("Collisions_per_day.json", function(error, data) {
 
   });
 
-//create brush function redraw scatterplot with selection
+//create brush function redraw bar plot with selection
 function brushed() {
   if (d3.event.sourceEvent && d3.event.sourceEvent.type === "zoom") return; // ignore brush-by-zoom
   var s = d3.event.selection || x2.range();
